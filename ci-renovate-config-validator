@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+# Test a renovate configuration file with renovate-config-validator if the configuration file is updated in the pull request.
+# https://docs.renovatebot.com/reconfigure-renovate/
+
+set -eu
+
+RENOVATE_FILES=".github/renovate.json
+.github/renovate.json5
+.gitlab/renovate.json
+.gitlab/renovate.json5
+.renovaterc.json
+renovate.json
+renovate.json5
+.renovaterc"
+
+log() {
+  echo "===> $1" >&2
+}
+
+if ! grep -f <(echo "$RENOVATE_FILES") "$CI_INFO_TEMP_DIR/pr_all_filenames.txt" > /dev/null; then
+  log "Renovate configuration file isn't changed"
+  exit 0
+fi
+
+log "===> Renovate configuration file is changed"
+
+if command -v renovate-config-validator > /dev/null 2>&1; then
+  log "Testing Renovate configuration file with renovate-config-validator"
+  renovate-config-validator
+  exit 0
+fi
+
+log "Installing renovate-config-validator with npm"
+npm init -y
+npm i renovate
+log "Testing Renovate configuration file with renovate-config-validator"
+npx renovate-config-validator
