@@ -1,5 +1,8 @@
 # ci-renovate-config-validator
 
+[![GitHub last commit](https://img.shields.io/github/last-commit/suzuki-shunsuke/ci-renovate-config-validator.svg)](https://github.com/suzuki-shunsuke/ci-renovate-config-validator)
+[![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/suzuki-shunsuke/ci-renovate-config-validator/master/LICENSE)
+
 script to validate Renovate configuration file with renovate-config-validator
 
 ## Requirement
