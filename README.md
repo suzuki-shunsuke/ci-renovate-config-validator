@@ -15,7 +15,7 @@ script to validate Renovate configuration file with renovate-config-validator
 ## How to use
 
 ```console
-$ curl -sSfL https://raw.githubusercontent.com/suzuki-shunsuke/ci-renovate-config-validator/blob/v0.1.0-0/ci-renovate-config-validator | sh
+$ curl -sSfL https://raw.githubusercontent.com/suzuki-shunsuke/ci-renovate-config-validator/v0.1.0-0/ci-renovate-config-validator | sh
 ```
 
 ## LICENSE
